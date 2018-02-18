@@ -1,48 +1,30 @@
-#include <iostream>
-#include <list>
-#include <vector>
-using namespace std;
+#pragma once
 
-#ifndef GAME_H_
-#define GAME_H_
+#include "CurrentPlayers.h"
+#include "QuestionCategoryContainer.h"
 
-class Game{
+class Game {
 
-		private:
-			vector<string> players;
-
-			int places[6];
-			int purses[6];
-
-			bool inPenaltyBox[6];
-
-			list<string> popQuestions;
-			list<string> scienceQuestions;
-			list<string> sportsQuestions;
-			list<string> rockQuestions;
-
-			int currentPlayer;
-			bool isGettingOutOfPenaltyBox;
+private:
+	CurrentPlayers players;
+	QuestionCategoryContainer questions;
 
 public:
 	Game();
-	string createRockQuestion(int index);
 	bool isPlayable();
-	bool add(string playerName);
+	void addPlayer(string playerName);
 
-	int howManyPlayers();
-	void roll(int roll);
+	bool roll(unsigned roll);
+	void NextPlayer() { players.NextPlayer(); };
 
-	private:
-		void askQuestion();
-		string currentCategory();
+private:
+	void askQuestion();
 
-				public:
-					bool wasCorrectlyAnswered();
-					bool wrongAnswer();
+public:
+	bool correctAnswer();
+	void wrongAnswer();
 
 private:
 	bool didPlayerWin();
 };
 
-#endif /* GAME_H_ */
