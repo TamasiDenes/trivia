@@ -1,29 +1,34 @@
-﻿#include <stdlib.h>
-#include "Game.h"
+// GameRunner.cpp : Defines the entry point for the console application.
+//
 
-static bool notAWinner;
+#include "stdafx.h"
+
+#include <stdlib.h>
+#include <ctime>
+
+#include "Game.h"
 
 int main()
 {
 	Game aGame;
+	bool isAWinner = false;
 
-	aGame.add("Chet");
-	aGame.add("Pat");
-	aGame.add("Sue");
+	aGame.addPlayer("Chet");
+	aGame.addPlayer("Pat");
+	aGame.addPlayer("Sue");
+
+	srand(time(nullptr));
 
 	do
 	{
-
-		aGame.roll(rand() % 5 + 1);
-
-		if (rand() % 9 == 7)
+		if (aGame.roll(rand() % 6 + 1))
 		{
-			notAWinner = aGame.wrongAnswer();
+			if (rand() % 9 == 7)
+				aGame.wrongAnswer();
+			else
+				isAWinner = aGame.correctAnswer();
 		}
-		else
-		{
-			notAWinner = aGame.wasCorrectlyAnswered();
-		}
-	} while (notAWinner);
+		aGame.NextPlayer();
+	} while (!isAWinner);
 
 }
