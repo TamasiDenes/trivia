@@ -7,18 +7,18 @@
 #include <sstream>
 #include <ctime>
 
-Game::Game( unsigned DiceSideNumber = 6)
+Game::Game(unsigned DiceSideNumber)
 	: diceSideNumber(DiceSideNumber)
 {
 	srand(time(nullptr));
-		
+
 	questions.push_back("Pop");
 	questions.push_back("Science");
 	questions.push_back("Sports");
 	questions.push_back("Rock");
 }
 
-void Game::addPlayer(string playerName) 
+void Game::addPlayer(string playerName)
 {
 	players.push_back(playerName);
 
@@ -31,13 +31,13 @@ bool Game::roll()
 	unsigned roll = rand() % 6 + 1;
 
 	cout << players.GetCurrentPlayer().GetName() << " is the current player" << endl;
-	
+
 	cout << "They have rolled a " << roll << endl;
 
 	bool didPlayerGetQuestion = false;
 
 	bool inPenalty = players.GetCurrentPlayer().IsInPenaltyBox();
-	if ( !inPenalty || roll % 2 != 0 )
+	if (!inPenalty || roll % 2 != 0)
 	{
 		if (inPenalty)
 		{
@@ -46,16 +46,16 @@ bool Game::roll()
 		}
 
 		unsigned newPlace = (players.GetCurrentPlayer().GetPlace() + roll);
-		if( newPlace >= 3 * questions.size() )
-			newPlace -= 3 * question.size();
-			
+		if (newPlace >= 3 * questions.size())
+			newPlace -= 3 * questions.size();
+
 		players.GetCurrentPlayer().SetPlace(newPlace);
 
 		int placeOfCurrentPlayer = players.GetCurrentPlayer().GetPlace();
 
 		cout << players.GetCurrentPlayer().GetName() << "'s new location is " << placeOfCurrentPlayer << endl;
-		cout << "The category is " << questions.GetCurrentQuestionCategoryName( placeOfCurrentPlayer % questions.size()) << endl;
-		
+		cout << "The category is " << questions.GetCurrentQuestionCategoryName(placeOfCurrentPlayer % questions.size()) << endl;
+
 		askQuestion();
 		didPlayerGetQuestion = true;
 	}
@@ -68,16 +68,16 @@ bool Game::roll()
 void Game::askQuestion()
 {
 	int categoryIndex = players.GetCurrentPlayer().GetPlace() % questions.size();
-	cout << questions.PopNextQuestion( categoryIndex ) << endl;
+	cout << questions.PopNextQuestion(categoryIndex) << endl;
 }
 
 
 bool Game::correctAnswer()
 {
 	cout << "Answer was corrent!!!!" << endl;
-	
+
 	players.GetCurrentPlayer().AddPurse();
-	
+
 	cout << players.GetCurrentPlayer().GetName()
 		<< " now has "
 		<< players.GetCurrentPlayer().GetPurse()
