@@ -22,4 +22,3 @@ public:
 		return (*this)[index].PopNextQuestion();
 	}
 };
-
