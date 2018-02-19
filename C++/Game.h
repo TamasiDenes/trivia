@@ -9,13 +9,14 @@ private:
 	CurrentPlayers players;
 	QuestionCategoryContainer questions;
 
+	const unsigned diceSideNumber;
+	const unsigned mapSize;
+
 	void askQuestion();
 	bool didPlayerWin();
 
 public:
-	Game(unsigned DiceSideNumber = 6);
-
-	const unsigned diceSideNumber;
+	Game(unsigned DiceSideNumber = 6, unsigned MapSize = 3);
 
 	bool isPlayable();
 	void addPlayer(string playerName);
