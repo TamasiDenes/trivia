@@ -7,21 +7,18 @@
 
 using namespace std;
 
-QuestionsCategory::QuestionsCategory( string categoryName) : nameOfCategory( categoryName )
-{
-	for (int i = 0; i < 50; i++)
-	{
 
-		ostringstream oss(ostringstream::out);
-		oss << categoryName << " Question " << i;
-
-		questions.push_back(oss.str());
-	}
-}
 
 QuestionsCategory::QuestionsCategory(const char * categoryName)
 {
-	QuestionsCategory(string(categoryName));
+	ostringstream oss(ostringstream::out);
+	for (int i = 0; i < 50; i++)
+	{
+		oss << categoryName << " Question " << i;
+
+		questions.push_back(oss.str());
+		oss.str("");
+	}
 }
 
 QuestionsCategory::~QuestionsCategory()
