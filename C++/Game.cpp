@@ -6,7 +6,8 @@
 #include <iostream>
 #include <sstream>
 
-Game::Game()
+Game::Game( unsigned DiceSideNumber = 6)
+	: diceSideNumber(DiceSideNumber)
 {
 	questions.push_back("Pop");
 	questions.push_back("Science");
