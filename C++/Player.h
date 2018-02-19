@@ -10,7 +10,7 @@ class Player
 	int purse;
 
 public:
-	Player( std::string Name );
+	Player(std::string Name);
 	~Player();
 	std::string GetName() { return name; };
 
@@ -23,4 +23,3 @@ public:
 	bool IsInPenaltyBox() { return isInPenalty; };
 	void SetPenaltyBox(bool inPenalty) { isInPenalty = inPenalty; };
 };
-
