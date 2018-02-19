@@ -14,8 +14,7 @@ Player::~Player()
 {
 }
 
-void Player::SetPlace(unsigned roll)
+void Player::SetPlace(unsigned newPlace)
 {
-	place += roll;
-	if (place > 11) place -= 12;
+	place = newPlace;
 }
