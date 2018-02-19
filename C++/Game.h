@@ -14,7 +14,7 @@ public:
 	bool isPlayable();
 	void addPlayer(string playerName);
 
-	bool roll(unsigned roll);
+	bool roll(unsigned newPlace);
 	void NextPlayer() { players.NextPlayer(); };
 
 private:
