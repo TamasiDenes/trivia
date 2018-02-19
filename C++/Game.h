@@ -20,7 +20,7 @@ public:
 	bool isPlayable();
 	void addPlayer(string playerName);
 
-	bool roll(unsigned newPlace);
+	bool roll();
 	void NextPlayer() { players.NextPlayer(); };
 	bool correctAnswer();
 	void wrongAnswer();
