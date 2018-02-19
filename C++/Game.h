@@ -8,23 +8,21 @@ class Game {
 private:
 	CurrentPlayers players;
 	QuestionCategoryContainer questions;
+	
+	void askQuestion();
+	bool didPlayerWin();
 
 public:
-	Game();
+	Game( unsigned DiceSideNumber );
+	
+	const unsigned diceSideNum;
+	
 	bool isPlayable();
 	void addPlayer(string playerName);
 
 	bool roll(unsigned newPlace);
 	void NextPlayer() { players.NextPlayer(); };
-
-private:
-	void askQuestion();
-
-public:
 	bool correctAnswer();
 	void wrongAnswer();
-
-private:
-	bool didPlayerWin();
 };
 
