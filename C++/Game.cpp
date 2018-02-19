@@ -7,8 +7,9 @@
 #include <sstream>
 #include <ctime>
 
-Game::Game(unsigned DiceSideNumber)
+Game::Game(unsigned DiceSideNumber, unsigned MapSize)
 	: diceSideNumber(DiceSideNumber)
+	, mapSize(MapSize)
 {
 	srand(time(nullptr));
 
@@ -28,7 +29,7 @@ void Game::addPlayer(string playerName)
 
 bool Game::roll()
 {
-	unsigned roll = rand() % 6 + 1;
+	unsigned roll = rand() % diceSideNumber + 1;
 
 	cout << players.GetCurrentPlayer().GetName() << " is the current player" << endl;
 
@@ -45,9 +46,9 @@ bool Game::roll()
 			players.GetCurrentPlayer().SetPenaltyBox(false);
 		}
 
-		unsigned newPlace = (players.GetCurrentPlayer().GetPlace() + roll);
-		if (newPlace >= 3 * questions.size())
-			newPlace -= 3 * questions.size();
+		unsigned numberOfPlaces = mapSize * questions.size();
+		unsigned realSteps = roll % numberOfPlaces;
+		unsigned newPlace = (players.GetCurrentPlayer().GetPlace() + realSteps) % numberOfPlaces;
 
 		players.GetCurrentPlayer().SetPlace(newPlace);
 
