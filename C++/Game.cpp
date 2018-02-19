@@ -5,10 +5,13 @@
 #include <stdlib.h>
 #include <iostream>
 #include <sstream>
+#include <ctime>
 
 Game::Game( unsigned DiceSideNumber = 6)
 	: diceSideNumber(DiceSideNumber)
 {
+	srand(time(nullptr));
+		
 	questions.push_back("Pop");
 	questions.push_back("Science");
 	questions.push_back("Sports");
@@ -23,10 +26,9 @@ void Game::addPlayer(string playerName)
 	cout << "They are player number " << players.size() << endl;
 }
 
-bool Game::roll(unsigned roll)
+bool Game::roll()
 {
-	if (roll > 6) 
-		roll = roll % 6 + 1;
+	unsigned roll = rand() % 6 + 1;
 
 	cout << players.GetCurrentPlayer().GetName() << " is the current player" << endl;
 	
