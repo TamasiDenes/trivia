@@ -21,7 +21,7 @@ int main()
 
 	do
 	{
-		if (aGame.roll(rand() % 6 + 1))
+		if (aGame.roll())
 		{
 			if (rand() % 9 == 7)
 				aGame.wrongAnswer();
