@@ -4,7 +4,6 @@
 #include "stdafx.h"
 
 #include <stdlib.h>
-#include <ctime>
 
 #include "Game.h"
 
@@ -17,16 +16,14 @@ int main()
 	aGame.addPlayer("Pat");
 	aGame.addPlayer("Sue");
 
-	srand(time(nullptr));
-
 	do
 	{
 		if (aGame.roll())
 		{
-			if (rand() % 9 == 7)
-				aGame.wrongAnswer();
-			else
+			if (aGame.answerIt())
 				isAWinner = aGame.correctAnswer();
+			else
+				aGame.wrongAnswer();
 		}
 		aGame.NextPlayer();
 	} while (!isAWinner);
