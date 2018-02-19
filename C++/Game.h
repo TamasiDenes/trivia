@@ -8,25 +8,24 @@ class Game {
 private:
 	CurrentPlayers players;
 	QuestionCategoryContainer questions;
-	
+
 	void askQuestion();
 	bool didPlayerWin();
 
 public:
-	Game( unsigned DiceSideNumber );
-	
-	const unsigned diceSideNum;
-	
+	Game(unsigned DiceSideNumber = 6);
+
+	const unsigned diceSideNumber;
+
 	bool isPlayable();
 	void addPlayer(string playerName);
 
 	bool roll();
-	bool answerIt( unsigned hitRatio = 10)
+	bool answerIt(int hitRatio = 90)
 	{
-		return (rand() % 100 < hitRation );
+		return (rand() % 100 < hitRatio);
 	}
 	void NextPlayer() { players.NextPlayer(); };
 	bool correctAnswer();
 	void wrongAnswer();
 };
-
