@@ -42,7 +42,11 @@ bool Game::roll(unsigned roll)
 			players.GetCurrentPlayer().SetPenaltyBox(false);
 		}
 
-		players.GetCurrentPlayer().SetPlace(roll);
+		unsigned newPlace = (players.GetCurrentPlayer().GetPlace() + roll);
+		if( newPlace >= 3 * questions.size() )
+			newPlace -= 3 * question.size();
+			
+		players.GetCurrentPlayer().SetPlace(newPlace);
 
 		int placeOfCurrentPlayer = players.GetCurrentPlayer().GetPlace();
 
