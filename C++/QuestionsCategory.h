@@ -10,7 +10,6 @@ class QuestionsCategory
 
 	list<string> questions;
 public:
-	QuestionsCategory( string categoryName);
 	QuestionsCategory(char const * categoryName);
 	~QuestionsCategory();
 
