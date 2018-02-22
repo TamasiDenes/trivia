@@ -2,3 +2,21 @@
 # in a .gitignore file inside the root folder
 # of that language. See Scala/.gitignore for
 # an example. Thanks.
+/C++/QuizGameRefactor.vcxproj.filters
+/C++/QuizGameRefactor.vcxproj
+/C++/.vs/QuizGameRefactor/v15/ipch/AutoPCH/fb19f381abab2d38/QUESTIONSCATEGORY.ipch
+/C++/.vs/QuizGameRefactor/v15/ipch/AutoPCH/e8fd86d2f9a76db9/GAMERUNNER.ipch
+/C++/.vs/QuizGameRefactor/v15/ipch/AutoPCH/c96b34d7b2c2dbce/PLAYER.ipch
+/C++/.vs/QuizGameRefactor/v15/ipch/AutoPCH/871780805abe4482/QUESTIONSCATEGORY.ipch
+/C++/.vs/QuizGameRefactor/v15/ipch/AutoPCH/62c4e1e0574bacf4/PLAYER.ipch
+/C++/.vs/QuizGameRefactor/v15/ipch/AutoPCH/59881628d354fd1/GAME.ipch
+/C++/.vs/QuizGameRefactor/v15/ipch/AutoPCH/23347c8561571526/CURRENTPLAYERS.ipch
+/C++/.vs/QuizGameRefactor/v15/Browse.VC.opendb
+/C++/.vs/QuizGameRefactor/v15/Browse.VC.db
+/C++/.vs/QuizGameRefactor/v15/.suo
+/.vs/VSWorkspaceState.json
+/.vs/trivia/v15/ipch/AutoPCH/dd382244abbc336a/CURRENTPLAYERS.ipch
+/.vs/trivia/v15/Browse.VC.db
+/.vs/trivia/v15/.suo
+/.vs/slnx.sqlite
+/.vs/ProjectSettings.json

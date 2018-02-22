@@ -3,17 +3,16 @@
 #include <string>
 #include <list>
 
-using namespace std;
 class QuestionsCategory
 {
-	string nameOfCategory;
+	std::string nameOfCategory;
 
-	list<string> questions;
+	std::list<std::string> questions;
 public:
 	QuestionsCategory(char const * categoryName);
 	~QuestionsCategory();
 
-	string PopNextQuestion();
-	string GetName();
+	std::string PopNextQuestion();
+	std::string GetName();
 };
 

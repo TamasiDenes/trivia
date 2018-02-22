@@ -19,12 +19,12 @@ public:
 	Game(unsigned DiceSideNumber = 6, unsigned MapSize = 3);
 
 	bool isPlayable();
-	void addPlayer(string playerName);
+	void addPlayer(std::string playerName);
 
 	bool roll();
 	bool answerIt(int hitRatio = 90)
 	{
-		return (rand() % 100 < hitRatio);
+		return (std::rand() % 100 < hitRatio);
 	}
 	void NextPlayer() { players.NextPlayer(); };
 	bool correctAnswer();

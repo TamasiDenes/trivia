@@ -1,10 +1,9 @@
-#include "stdafx.h"
 #include "CurrentPlayers.h"
 
-using namespace std;
 
 CurrentPlayers::CurrentPlayers()
 {
+	currentPlayerIndex = 0;
 }
 
 

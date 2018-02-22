@@ -3,11 +3,9 @@
 #include "Player.h"
 
 #include <vector>
-#include <string>
 
-using namespace std;
 
-class CurrentPlayers : public vector<Player>
+class CurrentPlayers : public std::vector<Player>
 {
 	int currentPlayerIndex;
 

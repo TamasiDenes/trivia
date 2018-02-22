@@ -1,5 +1,5 @@
-#include "stdafx.h"
 #include "Player.h"
+
 #include <string>
 
 Player::Player(std::string Name)

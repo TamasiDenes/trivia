@@ -1,8 +1,5 @@
-#include "stdafx.h"
 #include "Game.h"
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <iostream>
 #include <sstream>
 #include <ctime>
@@ -11,7 +8,7 @@ Game::Game(unsigned DiceSideNumber, unsigned MapSize)
 	: diceSideNumber(DiceSideNumber)
 	, mapSize(MapSize)
 {
-	srand(time(nullptr));
+	std::srand(std::time(nullptr));
 
 	questions.push_back("Pop");
 	questions.push_back("Science");
@@ -19,21 +16,21 @@ Game::Game(unsigned DiceSideNumber, unsigned MapSize)
 	questions.push_back("Rock");
 }
 
-void Game::addPlayer(string playerName)
+void Game::addPlayer(std::string playerName)
 {
 	players.push_back(playerName);
 
-	cout << playerName << " was added" << endl;
-	cout << "They are player number " << players.size() << endl;
+	std::cout << playerName << " was added" << std::endl;
+	std::cout << "They are player number " << players.size() << std::endl;
 }
 
 bool Game::roll()
 {
-	unsigned roll = rand() % diceSideNumber + 1;
+	unsigned roll = std::rand() % diceSideNumber + 1;
 
-	cout << players.GetCurrentPlayer().GetName() << " is the current player" << endl;
+	std::cout << players.GetCurrentPlayer().GetName() << " is the current player" << std::endl;
 
-	cout << "They have rolled a " << roll << endl;
+	std::cout << "They have rolled a " << roll << std::endl;
 
 	bool didPlayerGetQuestion = false;
 
@@ -42,7 +39,7 @@ bool Game::roll()
 	{
 		if (inPenalty)
 		{
-			cout << players.GetCurrentPlayer().GetName() << " is getting out of the penalty box" << endl;
+			std::cout << players.GetCurrentPlayer().GetName() << " is getting out of the penalty box" << std::endl;
 			players.GetCurrentPlayer().SetPenaltyBox(false);
 		}
 
@@ -54,14 +51,14 @@ bool Game::roll()
 
 		int placeOfCurrentPlayer = players.GetCurrentPlayer().GetPlace();
 
-		cout << players.GetCurrentPlayer().GetName() << "'s new location is " << placeOfCurrentPlayer << endl;
-		cout << "The category is " << questions.GetCurrentQuestionCategoryName(placeOfCurrentPlayer % questions.size()) << endl;
+		std::cout << players.GetCurrentPlayer().GetName() << "'s new location is " << placeOfCurrentPlayer << std::endl;
+		std::cout << "The category is " << questions.GetCurrentQuestionCategoryName(placeOfCurrentPlayer % questions.size()) << std::endl;
 
 		askQuestion();
 		didPlayerGetQuestion = true;
 	}
 	else
-		cout << players.GetCurrentPlayer().GetName() << " is not getting out of the penalty box" << endl;
+		std::cout << players.GetCurrentPlayer().GetName() << " is not getting out of the penalty box" << std::endl;
 
 	return didPlayerGetQuestion;
 }
@@ -69,29 +66,29 @@ bool Game::roll()
 void Game::askQuestion()
 {
 	int categoryIndex = players.GetCurrentPlayer().GetPlace() % questions.size();
-	cout << questions.PopNextQuestion(categoryIndex) << endl;
+	std::cout << questions.PopNextQuestion(categoryIndex) << std::endl;
 }
 
 
 bool Game::correctAnswer()
 {
-	cout << "Answer was corrent!!!!" << endl;
+	std::cout << "Answer was corrent!!!!" << std::endl;
 
 	players.GetCurrentPlayer().AddPurse();
 
-	cout << players.GetCurrentPlayer().GetName()
+	std::cout << players.GetCurrentPlayer().GetName()
 		<< " now has "
 		<< players.GetCurrentPlayer().GetPurse()
-		<< " Gold Coins." << endl;
+		<< " Gold Coins." << std::endl;
 
 	return didPlayerWin();
 }
 
 void Game::wrongAnswer()
 {
-	cout << "Question was incorrectly answered" << endl;
+	std::cout << "Question was incorrectly answered" << std::endl;
 
-	cout << players.GetCurrentPlayer().GetName() + " was sent to the penalty box" << endl;
+	std::cout << players.GetCurrentPlayer().GetName() + " was sent to the penalty box" << std::endl;
 
 	players.GetCurrentPlayer().SetPenaltyBox(true);
 }

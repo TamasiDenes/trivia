@@ -6,18 +6,18 @@
 #include <vector>
 
 
-class QuestionCategoryContainer : public vector<QuestionsCategory>
+class QuestionCategoryContainer : public std::vector<QuestionsCategory>
 {
 public:
-	QuestionCategoryContainer();
-	~QuestionCategoryContainer();
+	QuestionCategoryContainer() {};
+	~QuestionCategoryContainer() {};
 
-	string GetCurrentQuestionCategoryName( int index )
+	std::string GetCurrentQuestionCategoryName( int index )
 	{
 		return (*this)[index].GetName();
 	}
 
-	string PopNextQuestion(int index )
+	std::string PopNextQuestion(int index )
 	{
 		return (*this)[index].PopNextQuestion();
 	}

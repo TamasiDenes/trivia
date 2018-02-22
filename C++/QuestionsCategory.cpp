@@ -1,17 +1,13 @@
-#include "stdafx.h"
-
 #include <iostream>
 #include <sstream>
 
 #include "QuestionsCategory.h"
 
-using namespace std;
-
 
 
 QuestionsCategory::QuestionsCategory(const char * categoryName)
 {
-	ostringstream oss(ostringstream::out);
+	std::ostringstream oss(std::ostringstream::out);
 	for (int i = 0; i < 50; i++)
 	{
 		oss << categoryName << " Question " << i;
@@ -25,16 +21,16 @@ QuestionsCategory::~QuestionsCategory()
 {
 }
 
-string QuestionsCategory::PopNextQuestion()
+std::string QuestionsCategory::PopNextQuestion()
 {
 	bool isEmpty = questions.empty();
-	string result = isEmpty ? "There is no more question in this category!" : questions.front();
+	std::string result = isEmpty ? "There is no more question in this category!" : questions.front();
 	if(!isEmpty)
 		questions.pop_front();
 	return result;
 }
 
-string QuestionsCategory::GetName()
+std::string QuestionsCategory::GetName()
 {
 	return nameOfCategory;
 }
